@@ -1,0 +1,5 @@
+{
+    "cmake.configureOnOpen": true,
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "cmake.sourceDirectory": "C:/Users/baner/flutterprojects/chatApp/chat_app/windows"
+}
