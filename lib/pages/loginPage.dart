@@ -1,5 +1,9 @@
+import 'package:chat_app/const.dart';
+import 'package:chat_app/services/auth_Service.dart';
+
 import 'package:chat_app/widgets/formField.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,7 +13,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final GetIt _getIt = GetIt.instance;
+
   final GlobalKey<FormState> _loginformKey = GlobalKey();
+
+  late AuthService _authService;
+
+  String? email, password;
+
+  @override
+  void initState() {
+    super.initState();
+    _authService = _getIt.get<AuthService>();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,10 +94,23 @@ class _LoginPageState extends State<LoginPage> {
             Formfield(
               hintText: "Enter Your Email",
               labelText: "Email",
+              regExp: EMAIL_VALIDATION_REGEX,
+              onSaved: (value) {
+                setState(() {
+                  email = value;
+                });
+              },
             ),
             Formfield(
               hintText: "Enter Your Password",
               labelText: "Password",
+              regExp: PASSWORD_VALIDATION_REGEX,
+              isObscure: true,
+              onSaved: (value) {
+                setState(() {
+                  password = value;
+                });
+              },
             ),
             loginButton(),
           ],
@@ -93,9 +123,16 @@ class _LoginPageState extends State<LoginPage> {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width,
       child: MaterialButton(
-        onPressed: () {
+        onPressed: () async {
           if (_loginformKey.currentState?.validate()?? false) {
-           
+           _loginformKey.currentState?.save();
+           bool result = await _authService.login(email!, password!);
+           print(result);
+            if (result) {
+              
+            } else {
+              
+            }
           }
         },
         color: Theme.of(context).colorScheme.primary,

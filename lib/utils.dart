@@ -11,7 +11,7 @@ Future<void> setupFirebase() async {
 
 Future<void> registerService() async {
   final GetIt getIt = GetIt.instance;
-  getIt.registerSingleton<AuthService>(
+  GetIt.instance.registerSingleton<AuthService>(
     AuthService(),
   );
 }

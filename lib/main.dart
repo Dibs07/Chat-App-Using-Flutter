@@ -1,4 +1,4 @@
-import 'package:chat_app/pages/loginPage.dart';
+import 'package:chat_app/pages/loginpage.dart';
 import 'package:chat_app/utils.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
