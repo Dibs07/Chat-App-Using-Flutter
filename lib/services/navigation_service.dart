@@ -1,10 +1,14 @@
+import 'package:chat_app/pages/homepage.dart';
 import 'package:chat_app/pages/loginpage.dart';
+import 'package:chat_app/pages/registerpage.dart';
 import 'package:flutter/material.dart';
 
 class NavigationService {
   late GlobalKey<NavigatorState> navigatorKey;
   final Map<String, Widget Function(BuildContext)> routes = {
-    '/login': (context) => const LoginPage(),
+    "/login": (context) => const LoginPage(),
+    '/home': (context) => const HomePage(),
+    "/register": (context) => const RegisterPage(),
   };
 
   GlobalKey<NavigatorState>? get nav {
@@ -22,7 +26,7 @@ class NavigationService {
   void pushNamed(String routeName) {
     navigatorKey.currentState?.pushNamed(routeName);
   }
-  void pushReplacementNamerd (String routeName) {
+  void pushReplacementNamed (String routeName) {
     navigatorKey.currentState?.pushReplacementNamed(routeName);
   }
   void goback (){
