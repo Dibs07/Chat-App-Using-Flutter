@@ -1,5 +1,6 @@
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/services/auth_Service.dart';
+import 'package:chat_app/services/navigation_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,7 +12,10 @@ Future<void> setupFirebase() async {
 
 Future<void> registerService() async {
   final GetIt getIt = GetIt.instance;
-  GetIt.instance.registerSingleton<AuthService>(
+  getIt.registerSingleton<AuthService>(
     AuthService(),
+  );
+  getIt.registerSingleton<NavigationService>(
+    NavigationService(),
   );
 }
