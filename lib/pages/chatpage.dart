@@ -48,7 +48,7 @@ class _ChatPageState extends State<ChatPage> {
 
   Widget buildUi() {
     return DashChat(
-      ,
+      
       messages: const [],
       user: currentuser!,
       onSend: (message) {},
