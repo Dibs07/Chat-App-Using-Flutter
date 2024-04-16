@@ -1,3 +1,4 @@
+import 'package:chat_app/pages/chatpage.dart';
 import 'package:chat_app/pages/homepage.dart';
 import 'package:chat_app/pages/loginpage.dart';
 import 'package:chat_app/pages/registerpage.dart';
@@ -9,6 +10,7 @@ class NavigationService {
     "/login": (context) => const LoginPage(),
     '/home': (context) => const HomePage(),
     "/register": (context) => const RegisterPage(),
+    
   };
 
   GlobalKey<NavigatorState>? get nav {
@@ -21,6 +23,10 @@ class NavigationService {
 
   NavigationService() {
     navigatorKey = GlobalKey<NavigatorState>();
+  }
+
+  void push(MaterialPageRoute route) {
+    navigatorKey.currentState?.push(route);
   }
 
   void pushNamed(String routeName) {

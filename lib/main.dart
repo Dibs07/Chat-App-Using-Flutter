@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigationService.navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(
+        
         colorScheme: ColorScheme.fromSeed(
+          secondary: Colors.blue,
           seedColor: Colors.blue,
         ),
         useMaterial3: true,
