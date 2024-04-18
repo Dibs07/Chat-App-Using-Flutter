@@ -15,7 +15,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   late AuthService _authService;
   ChatUser? currentuser, otheruser;
-
+  
   @override
   void initState() {
     super.initState();
@@ -47,11 +47,6 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget buildUi() {
-    return DashChat(
-      
-      messages: const [],
-      user: currentuser!,
-      onSend: (message) {},
-    );
+    return Container();
   }
 }
